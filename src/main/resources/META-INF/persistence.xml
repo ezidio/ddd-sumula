@@ -2,18 +2,18 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="DEFAULT_PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>br.com.tdc.sumula.tradicional.model.Jogador</class>
+    <class>br.com.everton.sumula.model.jogador.Jogador</class>
     <class>br.com.tdc.sumula.tradicional.model.teste.Jogador</class>
-    <class>br.com.tdc.sumula.tradicional.model.Sumula</class>
-    <class>br.com.tdc.sumula.tradicional.model.Escalacao</class>
-    <class>br.com.tdc.sumula.tradicional.model.Time</class>
-    <class>br.com.tdc.sumula.tradicional.model.Relacionado</class>
-    <class>br.com.tdc.sumula.tradicional.model.Arbitro</class>
-    <class>br.com.tdc.sumula.tradicional.model.Gol</class>
-    <class>br.com.tdc.sumula.tradicional.model.Substituicao</class>
-    <class>br.com.tdc.sumula.tradicional.model.Cartao</class>
-    <class>br.com.tdc.sumula.tradicional.model.Campeonato</class>
-    <class>br.com.tdc.sumula.tradicional.model.Estadio</class>
+    <class>br.com.everton.sumula.model.sumula.Sumula</class>
+    <class>br.com.everton.sumula.model.sumula.Escalacao</class>
+    <class>br.com.everton.sumula.model.Time</class>
+    <class>br.com.everton.sumula.model.sumula.Relacionado</class>
+    <class>br.com.everton.sumula.model.Arbitro</class>
+    <class>br.com.everton.sumula.model.sumula.Gol</class>
+    <class>br.com.everton.sumula.model.sumula.Substituicao</class>
+    <class>br.com.everton.sumula.model.sumula.Cartao</class>
+    <class>br.com.everton.sumula.model.Campeonato</class>
+    <class>br.com.everton.sumula.model.Estadio</class>
     <class>br.com.tdc.sumula.tradicional.model.v2.Sumula</class>
     <class>br.com.tdc.sumula.tradicional.model.v2.Escalacao</class>
     <class>br.com.tdc.sumula.tradicional.model.v2.Jogador</class>
