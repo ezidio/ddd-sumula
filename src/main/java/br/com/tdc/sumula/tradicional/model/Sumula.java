@@ -158,6 +158,9 @@ public class Sumula {
         notNull(tempo, "Não é possivel substituir sem informar o tempo.");
         notNull(sair, "Não é possivel substituir sem informar o jogador que irá sair.");
         notNull(entrar, "Não é possivel substituir sem informar o jogador que irá entrar.");
+
+        isTrue(estaRelacionado(sair), "Jogador não pode sair na substituição pois não foi relacionado.");
+        isTrue(estaRelacionado(entrar), "Jogador não pode entrar na substituição pois não foi relacionado.");
         isTrue(!jogadorExpulso(tempo, sair), "Jogador não pode sair na substituição pois foi expulso.");
         isTrue(!jogadorExpulso(tempo, entrar), "Jogador não pode entrar na substituição pois foi expulso.");
         isTrue(estaEmCampo(tempo, sair), "Jogador não pode sair na substituição pois não está em campo.");
@@ -256,6 +259,14 @@ public class Sumula {
 
     public Time getTimeCasa() {
         return getEscalacaoCasa().getTime();
+    }
+
+    public Time getTimeVisitante() {
+        return getEscalacaoVisitante().getTime();
+    }
+
+    public Estadio getEstadio() {
+        return estadio;
     }
 
 

@@ -16,6 +16,8 @@ import java.util.Optional;
 import static br.com.tdc.sumula.tradicional.type.TempoDeJogo.primeiroTempo;
 import static br.com.tdc.sumula.tradicional.type.TempoDeJogo.segundoTempo;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Testes relacionados a sumula
@@ -24,12 +26,12 @@ public class SumulaTest {
 
     private static final Long NUMERO_JOGO = 341L;
     private static final LocalDateTime DATA_JOGO = LocalDateTime.of(2016, 11, 16, 19, 30);
-    private static final Campeonato CAMPEONATO = Mockito.mock(Campeonato.class);
+    private static final Campeonato CAMPEONATO = mock(Campeonato.class);
     private static final Integer RODADA = 35;
     private static final Escalacao ESCALACAO_TIME_DA_CASA = BotafogoEnvironment.getEscalacao();
     private static final Escalacao ESCALACAO_TIME_VISITANTE = ChapecoenseEnvironment.getEscalacao();
-    private static final Arbitragem ARBITRAGEM = Mockito.mock(Arbitragem.class);
-    private static final Estadio ESTADIO = Mockito.mock(Estadio.class);
+    private static final Arbitragem ARBITRAGEM = mock(Arbitragem.class);
+    private static final Estadio ESTADIO = mock(Estadio.class);
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
@@ -66,6 +68,7 @@ public class SumulaTest {
         assertEquals(ESCALACAO_TIME_DA_CASA, sumula.getEscalacaoCasa());
         assertEquals(ESCALACAO_TIME_VISITANTE, sumula.getEscalacaoVisitante());
         assertEquals(ARBITRAGEM, sumula.getArbitragem());
+        assertEquals(ESTADIO, sumula.getEstadio());
     }
 
 
@@ -330,6 +333,34 @@ public class SumulaTest {
         expectedException.expectMessage("Substituição deve ser realizada entre jogadores do mesmo time.");
 
         sumula.addSubstituicao(primeiroTempo(20), titular, reserva);
+    }
+
+    @Test
+    public void deve_lancar_excecao_ao_substituir_jogador_nao_relacionado() throws Exception {
+        Sumula sumula = builder.build();
+
+        Relacionado jogadorNaoRelacionado = mock(Relacionado.class);
+        when(jogadorNaoRelacionado.getTime()).thenReturn(sumula.getTimeVisitante());
+
+        Relacionado reserva = sumula.getEscalacaoVisitante().getReservas().get(0);
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Jogador não pode sair na substituição pois não foi relacionado.");
+
+        sumula.addSubstituicao(primeiroTempo(20), jogadorNaoRelacionado, reserva);
+    }
+
+    @Test
+    public void deve_lancar_excecao_ao_entrar_jogador_nao_relacionado() throws Exception {
+        Sumula sumula = builder.build();
+
+        Relacionado jogadorNaoRelacionado = mock(Relacionado.class);
+        when(jogadorNaoRelacionado.getTime()).thenReturn(sumula.getTimeVisitante());
+
+        Relacionado titular = sumula.getEscalacaoVisitante().getTitulares().get(0);
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Jogador não pode entrar na substituição pois não foi relacionado.");
+
+        sumula.addSubstituicao(primeiroTempo(20), titular, jogadorNaoRelacionado);
     }
 
     @Test
@@ -694,7 +725,7 @@ public class SumulaTest {
     @Test
     public void deve_lancar_excecao_ao_adicionar_gol_de_time_fora_da_partida() throws Exception {
 
-        Time timeEstranho = Mockito.mock(Time.class);
+        Time timeEstranho = mock(Time.class);
 
         Sumula sumula = builder.build();
         Relacionado titular = sumula.getEscalacaoCasa().getTitulares().get(0);
@@ -709,8 +740,8 @@ public class SumulaTest {
 
         Sumula sumula = builder.build();
 
-        Relacionado relacionado = Mockito.mock(Relacionado.class);
-        Mockito.when(relacionado.getTime()).thenReturn(sumula.getTimeCasa());
+        Relacionado relacionado = mock(Relacionado.class);
+        when(relacionado.getTime()).thenReturn(sumula.getTimeCasa());
 
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Jogador vinculado ao gol não esta relacionado por nenhum time.");

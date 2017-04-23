@@ -7,13 +7,14 @@ package br.com.tdc.sumula.tradicional.model;
 import br.com.tdc.sumula.tradicional.type.TipoJogador;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @author everton
  */
 
 @Entity
-public class Jogador { 
+public class Jogador implements Serializable {
 
     @Id
     private Long cbf;

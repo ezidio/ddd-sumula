@@ -47,3 +47,7 @@ INSERT INTO arbitro(id, nome) values (1, 'Dewson Fernando Freitas da Silva');
 INSERT INTO arbitro(id, nome) values (2, 'Marcio Gleidson Correia Dias');
 INSERT INTO arbitro(id, nome) values (3, 'Helcio Araujo Neves');
 INSERT INTO arbitro(id, nome) values (4, 'Cleisson Veloso Pereira');
+
+INSERT INTO estadio(id, nome, cidade, estado) values (1, 'Luso Brasileiro', 'Rio de Janeiro', 'RJ');
+
+INSERT INTO campeonato(id, nome) values (1, 'Campeonato Brasileiro - 2016');

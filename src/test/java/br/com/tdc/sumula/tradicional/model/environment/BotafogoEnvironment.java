@@ -16,7 +16,7 @@ public class BotafogoEnvironment {
     public static final Long CBF_SIDAO = 154179L;
     public static final Long CBF_EMERSON_SANTOS= 348257L;
     public static final Long CBF_CARLI= 540906L;
-    public static final Long CBF_ALEMÃO= 295317L;
+    public static final Long CBF_ALEMAO= 295317L;
     public static final Long CBF_RODRIGO= 184455L;
     public static final Long CBF_VICTOR_LUIS = 309431L;
     public static final Long CBF_NEILTON= 316754L;
@@ -40,7 +40,7 @@ public class BotafogoEnvironment {
     public static int NUMERO_SIDAO  = 1;
     public static int NUMERO_EMERSON_SANTOS = 2;
     public static int NUMERO_CARLI = 3;
-    public static int NUMERO_ALEMÃO = 4;
+    public static int NUMERO_ALEMAO = 4;
     public static int NUMERO_RODRIGO = 5;
     public static int NUMERO_VICTOR_LUIS  = 6;
     public static int NUMERO_NEILTON = 7;
@@ -62,11 +62,12 @@ public class BotafogoEnvironment {
     public static int NUMERO_LUIS = 23;
 
     public static final br.com.tdc.sumula.tradicional.model.Time BOTAFOGO = TimeEnvironmentUtils.criaTime("Botafogo");
+    public static final Long BOTAFOGO_ID = 2L;
 
     public static final Jogador SIDAO = criaJogador(CBF_SIDAO, BOTAFOGO);
     public static final Jogador EMERSON_SANTOS = criaJogador(CBF_EMERSON_SANTOS, BOTAFOGO);
     public static final Jogador CARLI = criaJogador(CBF_CARLI, BOTAFOGO);
-    public static final Jogador ALEMÃO = criaJogador(CBF_ALEMÃO, BOTAFOGO);
+    public static final Jogador ALEMAO = criaJogador(CBF_ALEMAO, BOTAFOGO);
     public static final Jogador RODRIGO = criaJogador(CBF_RODRIGO, BOTAFOGO);
     public static final Jogador VICTOR_LUIS = criaJogador(CBF_VICTOR_LUIS, BOTAFOGO);
     public static final Jogador NEILTON = criaJogador(CBF_NEILTON, BOTAFOGO);
@@ -98,7 +99,7 @@ public class BotafogoEnvironment {
                 .addTitular(NUMERO_SIDAO , SIDAO)
                 .addTitular(NUMERO_EMERSON_SANTOS, EMERSON_SANTOS)
                 .addTitular(NUMERO_CARLI, CARLI)
-                .addTitular(NUMERO_ALEMÃO, ALEMÃO)
+                .addTitular(NUMERO_ALEMAO, ALEMAO)
                 .addTitular(NUMERO_RODRIGO, RODRIGO)
                 .addTitular(NUMERO_VICTOR_LUIS , VICTOR_LUIS)
                 .addTitular(NUMERO_NEILTON, NEILTON)

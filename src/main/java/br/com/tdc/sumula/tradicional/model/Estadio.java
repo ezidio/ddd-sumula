@@ -23,7 +23,7 @@ public class Estadio {
     private Long id;
 
     @Basic
-    private String descricao;
+    private String nome;
 
     @Basic
     private String cidade;
@@ -31,18 +31,16 @@ public class Estadio {
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
-    public Estadio(String descricao, String cidade, Estado estado) {
-        this.descricao = Validate.notEmpty(descricao);
-        this.cidade = Validate.notEmpty(cidade);
-        this.estado = Validate.notNull(estado);
+    protected Estadio() {
+        // construtor vazio para serialização
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getDescricao() {
-        return this.descricao;
+    public String getNome() {
+        return this.nome;
     }
 
     public String getCidade() {

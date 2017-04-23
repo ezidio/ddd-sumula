@@ -34,6 +34,7 @@ public class ChapecoenseEnvironment {
     public static final Long CBF_ALAN_RUSCHEL = 187597L;
 
     public static final Time CHAPECOENSE = criaTime("Chapecoense");
+    public static final Long CHAPECOENSE_ID = 1L;
 
     public static final Jogador DANILO = criaJogador(CBF_DANILO, CHAPECOENSE);
     public static final Jogador NETO = criaJogador(CBF_NETO, CHAPECOENSE);
@@ -72,6 +73,7 @@ public class ChapecoenseEnvironment {
     public static final int NUMERO_ARTHUR = 50;
     public static final int NUMERO_AILTON = 70;
     public static final int NUMERO_ALAN_RUSCHEL = 89;
+
 
     public static Escalacao getEscalacao() {
         return getEscalacaoBuilder()

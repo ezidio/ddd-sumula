@@ -27,6 +27,10 @@ public class Arbitro {
     @Basic
     private String nome;
 
+    protected Arbitro() {
+        // Construtor vazio para serialização
+    }
+
     public String getNome() {
         return this.nome;
     }

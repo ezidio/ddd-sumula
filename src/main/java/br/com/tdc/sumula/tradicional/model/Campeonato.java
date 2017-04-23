@@ -26,14 +26,10 @@ public class Campeonato {
     private Long id;
 
     @Basic
-    private String descricao;
+    private String nome;
 
-    public Campeonato(String descricao) {
-        this.descricao = Validate.notEmpty(descricao);
-    }
-
-    public String getDescricao() {
-        return this.descricao;
+    protected Campeonato() {
+        // construtor vazio para serialização
     }
 
     @Override
