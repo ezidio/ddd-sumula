@@ -31,6 +31,10 @@ public class Arbitro {
         // Construtor vazio para serialização
     }
 
+    public Arbitro(String nome) {
+        this.nome = nome;
+    }
+
     public String getNome() {
         return this.nome;
     }

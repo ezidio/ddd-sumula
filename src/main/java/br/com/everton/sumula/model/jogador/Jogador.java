@@ -7,6 +7,7 @@ package br.com.everton.sumula.model.jogador;
 import br.com.everton.sumula.model.type.TipoJogador;
 import br.com.everton.sumula.infrastructure.types.InscricaoCBFType;
 import br.com.everton.sumula.model.Time;
+import org.apache.commons.lang3.Validate;
 import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
@@ -26,22 +27,20 @@ public class Jogador implements Serializable {
     @Id
     private InscricaoCBF cbf;
 
-    @Basic
     private String nome;
 
     @ManyToOne
     @JoinColumn(name = "id_time")
     private Time time;
 
-    @Basic
     private String apelido;
 
     @Enumerated(EnumType.STRING)
     private TipoJogador tipo;
 
     private Jogador(Builder builder) {
-        this.cbf = builder.cbf;
-        this.nome = builder.nome;
+        this.cbf = Validate.notNull(builder.cbf);
+        this.nome = Validate.notEmpty(builder.nome);
         this.time = builder.time;
         apelido = builder.apelido;
         tipo = builder.tipo;

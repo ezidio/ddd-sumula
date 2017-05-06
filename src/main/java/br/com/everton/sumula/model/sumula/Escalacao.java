@@ -11,12 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import static org.apache.commons.lang3.Validate.isTrue;
 import static org.apache.commons.lang3.Validate.notNull;
@@ -31,7 +26,8 @@ public class Escalacao {
     @ManyToOne(targetEntity = Time.class)
     private Time time;
 
-    @OneToMany(targetEntity = Relacionado.class)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "id_relacionado", nullable = false)
     private List<Relacionado> relacionados;
 
     private Escalacao(Builder builder) {
